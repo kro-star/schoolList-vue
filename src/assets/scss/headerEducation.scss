@@ -1,0 +1,82 @@
+.logo-text {
+    font-size: 32px;
+    font-weight: 700;
+    color: #111827;
+    line-height: 38.4px;
+  }
+  
+  .message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #F1F4FD;
+    color: #111827;
+    padding: 15px;
+    border-radius: 5px;
+    z-index: 1000;
+  }
+  
+  .search {
+    padding: 17.5px 24px;
+    width: 300px;
+    margin-right: 20px;
+    &:hover {
+        background-color: #F1F4FD;
+        border: 1px solid #55555C;
+      }
+    
+      &:focus,
+      &:active {
+        background-color: #F1F4FD;
+        border: 1px solid #0E0E10;
+      }
+
+  }
+  
+  .search-img {
+    position: absolute;
+    top: 18px;
+    right: 50px;
+  }
+  
+  .btn-download {
+    padding: 16px 24px;
+    background-color: #33D35E;
+    border-radius: 10px;
+    cursor: pointer;
+  
+    &:hover {
+      background-color: #24C14E;
+    }
+  
+    &:active {
+      background-color: #16B240;
+    }
+  }
+  
+  .btn-text {
+    margin-left: 11px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  
+  .search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 300px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+  }
+  
+  .search-result-item {
+    padding: 8px;
+    cursor: pointer;
+  
+    &:hover {
+      background-color: #f0f0f0;
+    }
+  }

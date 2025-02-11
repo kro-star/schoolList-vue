@@ -14,7 +14,10 @@ const schoolStore = useSchoolStore();
 
 const generateTableRow = () => {
     schoolStore.loadSchools({region_id: schoolStore.checkRegions, updated_at: schoolStore.checkUpdated, count:schoolStore.checkCount, page: 1});
-    props.toggleFilters();
+    if(props.toggleFilters){
+
+        props.toggleFilters();
+    }
 }
 const cancelValues = () =>{
     schoolStore.checkRegions = [];
@@ -38,32 +41,6 @@ const cancelValues = () =>{
     </div>
 </template>
 
-<style lang="scss" scoped>
-.btn-cancel {
-  padding: 16px 24px;
-  font-size: 16px;
-  font-weight: 600;
-  margin-right: 20px;
-  text-align: center;
-  cursor: pointer;
-}
-
-.btn-run {
-  padding: 16px 24px;
-  border-radius: 10px;
-  background-color: #0E0E10;
-  color: #F1F4FD;
-  font-size: 16px;
-  font-weight: 600;
-  text-align: center;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #24C14E;
-  }
-
-  &:active {
-    background-color: #16B240;
-  }
-}
+<style  scoped>
+@import '../assets/css/buttonRun.css';
 </style>

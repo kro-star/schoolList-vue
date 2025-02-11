@@ -16,13 +16,13 @@ div.select-header {
   color: #0E0E10;
 
   &:hover {
-    background-color: white;
+    background-color: #F1F4FD;
     border: 1px solid #55555C;
   }
 
   &:focus,
   &:active {
-    background-color: white;
+    background-color: #F1F4FD;
     border: 1px solid #0E0E10;
   }
 }
@@ -118,8 +118,8 @@ input {
   cursor: pointer;
 
   &:hover {
-    background-color: #F1F4FD;
-    border: none;
+    background-color: white;
+    border: 1px solid #55555C;
   }
 
   &.active,
@@ -141,12 +141,10 @@ input {
   }
 }
 
-.vc-day {
-  &.today {
-    .vc-highlight {
-      color: tomato;
-    }
-  }
+.vc-pane-container{
+  background-color: #F1F4FD;
+  border-radius: 16px;
+  box-shadow: 0 5px 40px rgba(0,0,0,0.1);
 }
 
 .vc-day-content {
@@ -168,12 +166,16 @@ input {
 }
 
 .vc-arrow {
-  background-color: white;
+  background-color: #F1F4FD;
   background-image: url('./assets/img/backArrow.png') no-repeat;
+  &:hover, &:active{
+    background-color: #D3D3DE;
+    border: none;
+  }
 }
 
 .vc-title {
-  background-color: white;
+  background-color: #F1F4FD;
 }
 
 .vc-day-content[tabindex='0'] {

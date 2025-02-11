@@ -91,60 +91,8 @@ onMounted(() => {
       </div>
 </template>
 
-<style lang="scss" scoped>
-.select-container {
-  position: relative;
-  width: 100%;
-  font-family: sans-serif;
-}
-
-.select-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-  padding: 16px 24px;
-  width: 100%;
-  background: white url('../assets/img/down.png') no-repeat right 30px center;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-
-  &.open {
-    background: white url('../assets/img/up.png') no-repeat right 30px center;
-  }
-}
-
-.select-dropdown {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #fff;
-  z-index: 10;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.select-option {
-  padding: 8px 10px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #f0f0f0;
-  }
-
-  label {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    cursor: pointer;
-  }
-}
-
-.arrow {
-  font-size: 0.8em;
-}
+<style scoped>
+@import '../assets/css/selectRegions.css';
+@import '../style.css';
 
 </style>

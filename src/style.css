@@ -1,0 +1,248 @@
+* {
+  color: #0E0E10;
+  font-family: "Gotham Pro";
+  line-height: 130%;
+}
+
+ul {
+  margin-bottom: 0;
+}
+
+input[type=text],
+div.select-header {
+  background-color: white;
+  border: 1px solid #93939B;
+  border-radius: 10px;
+  color: #0E0E10;
+}
+input[type=text]:hover,
+div.select-header:hover {
+  background-color: #F1F4FD;
+  border: 1px solid #55555C;
+}
+input[type=text]:focus, input[type=text]:active,
+div.select-header:focus,
+div.select-header:active {
+  background-color: #F1F4FD;
+  border: 1px solid #0E0E10;
+}
+
+input::-webkit-input-placeholder {
+  color: #55555C;
+  font-size: 16px;
+  line-height: 20.8px;
+}
+
+input::-moz-placeholder {
+  color: #55555C;
+  font-size: 16px;
+  line-height: 20.8px;
+}
+
+input:-ms-input-placeholder {
+  color: #55555C;
+  font-size: 16px;
+  line-height: 20.8px;
+}
+
+input::-ms-input-placeholder {
+  color: #55555C;
+  font-size: 16px;
+  line-height: 20.8px;
+}
+
+input::placeholder {
+  color: #55555C;
+  font-size: 16px;
+  line-height: 20.8px;
+}
+
+.btn-light {
+  background-color: white;
+  border: 1px solid #93939B;
+  border-radius: 10px;
+}
+.btn-light:hover {
+  background-color: white;
+  border: 1px solid #55555C;
+}
+.btn-light:active {
+  background-color: #F0F0F7;
+  border: 1px solid #0E0E10;
+}
+
+.btn-green {
+  background-color: #33D35E;
+  border-radius: 10px;
+}
+.btn-green:hover {
+  background-color: #24C14E;
+}
+.btn-green:active {
+  background-color: #16B240;
+}
+
+.pagination-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 2px;
+     -moz-column-gap: 2px;
+          column-gap: 2px;
+}
+
+.back-button {
+  margin-right: 24px;
+}
+
+.next-button {
+  margin-left: 24px;
+}
+
+.paginate-buttons {
+  background-color: transparent;
+  border: none;
+}
+
+.pagination-numbers {
+  margin: 0 !important;
+}
+
+.back-button,
+.next-button {
+  border-radius: 8px;
+  border: 1px solid #93939B;
+  width: 44px;
+  height: 36px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+.back-button:hover,
+.next-button:hover {
+  border: 1px solid #55555C;
+}
+
+.number-buttons,
+.ending-breakpoint-button,
+.starting-breakpoint-button,
+.last-button,
+.first-button {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  margin-right: 2px;
+  font-size: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+.number-buttons:hover,
+.ending-breakpoint-button:hover,
+.starting-breakpoint-button:hover,
+.last-button:hover,
+.first-button:hover {
+  background-color: white;
+  border: 1px solid #55555C;
+}
+.number-buttons.active, .number-buttons:active,
+.ending-breakpoint-button.active,
+.ending-breakpoint-button:active,
+.starting-breakpoint-button.active,
+.starting-breakpoint-button:active,
+.last-button.active,
+.last-button:active,
+.first-button.active,
+.first-button:active {
+  background-color: #F0F0F7;
+}
+
+.last-button {
+  margin-right: 0;
+}
+
+.active-page {
+  background-color: #F0F0F7;
+  border: 1px solid #0E0E10;
+}
+.active-page:hover {
+  border: 1px solid #55555C;
+}
+
+.vc-pane-container {
+  background-color: #F1F4FD;
+  border-radius: 16px;
+  -webkit-box-shadow: 0 5px 40px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 5px 40px rgba(0, 0, 0, 0.1);
+}
+
+.vc-day-content {
+  border-radius: 0;
+  width: 34px;
+  height: 34px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 130%;
+  margin: 5px 7.5px;
+}
+.vc-day-content:hover {
+  background-color: #C3FCD2;
+}
+
+.vc-highlight-content-solid {
+  background-color: #33D35E;
+}
+
+.vc-arrow {
+  background-color: #F1F4FD;
+  background-image: url("./assets/img/backArrow.png") no-repeat;
+}
+.vc-arrow:hover, .vc-arrow:active {
+  background-color: #D3D3DE;
+  border: none;
+}
+
+.vc-title {
+  background-color: #F1F4FD;
+}
+
+.vc-day-content[tabindex="0"] {
+  background-color: #33D35E;
+}
+
+.vc-pane-container {
+  padding: 24px;
+  border-radius: 16px;
+}
+
+.vc-pane-header-wrapper {
+  top: 20px;
+  left: 0;
+  padding: 0 24px;
+}
+
+.vc-header {
+  padding: 8px 0;
+  margin-bottom: 10px;
+}
+
+.vc-weekday {
+  width: 34px;
+  height: 34px;
+  color: #93939B;
+  margin: 5px 7.5px;
+}

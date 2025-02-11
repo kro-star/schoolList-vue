@@ -10,7 +10,7 @@ const textMessage = ref('Успешно скачано');
 const searchFinish = ref(false);
 
 const downloadRow = () => {
-    //schoolStore.download(); - сервер не даёт скачивать, поэтому отключила.
+   // schoolStore.download(); // сервер не даёт скачивать, поэтому отключила.
     
     if (!schoolStore.downloadError){
         //textMessage.value = 'Успешно скачано';
@@ -30,18 +30,25 @@ const searchQuery = ref('');
 
 const searchResults = computed(() => {
   if (!searchQuery.value) {
+    searchFinish.value = false;
     return []; 
   }
-  if(searchQuery.value.length > 3){
+  if(searchQuery.value.length > 1){
+    searchFinish.value = false;
       return schoolStore.searchRegion(searchQuery.value);
   }
+  searchFinish.value = false;
   return [];
 });
 
 
 const selectRegion = (regionId) => {
-  schoolStore.checkRegions.push( parseInt(regionId));
-  searchQuery.value = ''; 
+    if(!schoolStore.checkRegions.includes(parseInt(regionId))){        
+        schoolStore.checkRegions.push( parseInt(regionId));
+      }
+      
+  searchQuery.value = '';   
+  searchFinish.value = true;
   
 }
 
@@ -102,76 +109,6 @@ const selectRegion = (regionId) => {
 </template>
 
 
-<style lang="scss" scoped>
-.logo-text {
-  font-size: 32px;
-  font-weight: 700;
-  color: #111827;
-  line-height: 38.4px;
-}
-
-.message {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background-color: #F1F4FD;
-  color: #111827;
-  padding: 15px;
-  border-radius: 5px;
-  z-index: 1000;
-}
-
-.search {
-  padding: 17.5px 24px;
-  width: 300px;
-  margin-right: 20px;
-}
-
-.search-img {
-  position: absolute;
-  top: 18px;
-  right: 50px;
-}
-
-.btn-download {
-  padding: 16px 24px;
-  background-color: #33D35E;
-  border-radius: 10px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #24C14E;
-  }
-
-  &:active {
-    background-color: #16B240;
-  }
-}
-
-.btn-text {
-  line-height: 20.8px;
-  font-size: 16px;
-  margin-left: 11px;
-}
-
-.search-results {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 300px;
-  background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  z-index: 10;
-}
-
-.search-result-item {
-  padding: 8px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #f0f0f0;
-  }
-}
+<style scoped>
+@import '../assets/css/headerEducation.css';
 </style>

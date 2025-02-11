@@ -65,64 +65,7 @@ const updateDropdownDirection = () => {
     </div>
 </template>
 
-<style lang="scss" scoped>
-.quantity-container {
-  position: relative;
-  width: 100%;
-  font-family: sans-serif;
-}
-
-.quantity-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-  border-radius: 8px;
-  border: 1px solid #D3D3DE;
-  padding: 6px 10px;
-  width: 73px;
-  height: 36px;
-  background: white url('../assets/img/down.png') no-repeat right 16px center;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-
-  &.open {
-    background: white url('../assets/img/up.png') no-repeat right 16px center;
-  }
-}
-
-.quantity-dropdown {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 73px;
-  border: 1px solid #55555C;
-  border-radius: 5px;
-  background-color: #fff;
-  z-index: 10;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-
-  &.up {
-    bottom: 100%;
-    top: auto;
-  }
-}
-
-.quantity-option {
-  padding: 8px 10px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #F1F4FD;
-  }
-
-  &:active {
-    background-color: #D3D3DE;
-  }
-}
-
-.arrow {
-  font-size: 0.8em;
-}
+<style  scoped>
+@import '../assets/css/selectQuantity.css';
+@import '../style.css';
 </style>

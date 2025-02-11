@@ -19,6 +19,7 @@ export const useSchoolStore = defineStore('school', {
     totalPagesSchools: 0,
     totalQuantitySchools: 0,
     loadPageSchools: 0,
+    downloadHref:'',
     downloadError: null,
     loadingDownload: false,
   }),
@@ -207,6 +208,8 @@ export const useSchoolStore = defineStore('school', {
     },
 
     async download(){
+      
+      this.downloadHref = '';
       const url = new URL('https://schooldb.skillline.ru/api/schools');
       const params = new URLSearchParams();
 
@@ -225,12 +228,11 @@ export const useSchoolStore = defineStore('school', {
       
     url.search = params.toString(); 
 
-    console.log('URL_download:', url.toString()); 
-
       this.loadingDownload = true;
       this.downloadError = null;
       try{
         const response = await fetch(url.toString());  
+
 
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`); 
@@ -238,7 +240,8 @@ export const useSchoolStore = defineStore('school', {
 
         
         const data = await response.json();
-
+        this.downloadHref = data.data;
+        console.log(data);
 
       } catch (error) {
         this.downloadError = error.message || 'Network error';

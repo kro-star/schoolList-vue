@@ -46,36 +46,7 @@ export default {
     </div>
 </template>
 
-<style lang="scss" scoped>
-    
-    .filter-select{
-  padding: 16px 24px;
-  border: 1px solid #D3D3DE;
-  border-radius: 10px;
-  width: 100%;
-  background: white url('../assets/img/down.png') no-repeat right 30px center;
-  -webkit-appearance: none; 
-  -moz-appearance: none;    
-  appearance: none; 
-}
-
-.data-select{
-  padding: 16px 24px;
-  width: 100%;
-  background: white url('../assets/img/calendar-icon.png') no-repeat right 30px center;
-  -webkit-appearance: none; 
-  -moz-appearance: none;    
-  appearance: none; 
-  cursor: pointer;
-}
-.position-calendar{
-  position: absolute;
-  top:51px;
-  left: 10px;
-  z-index: 10;
-
-}
-
-
+<style scoped>
+ @import '../assets/css/filterEducation.css';
 
 </style>

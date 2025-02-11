@@ -1,0 +1,38 @@
+.filter-select{
+    padding: 16px 24px;
+    border: 1px solid #D3D3DE;
+    border-radius: 10px;
+    width: 100%;
+    background: white url('../img/down.png') no-repeat right 30px center;
+    -webkit-appearance: none; 
+    -moz-appearance: none;    
+    appearance: none; 
+  }
+  
+  .data-select{
+    padding: 16px 24px;
+    border: 1px solid #D3D3DE;
+    border-radius: 10px;
+    width: 100%;
+    background: white url('../img/calendar-icon.png') no-repeat right 30px center;
+    -webkit-appearance: none; 
+    -moz-appearance: none;    
+    appearance: none; 
+    cursor: pointer;
+    &:hover {
+        background-color: #F1F4FD;
+        border: 1px solid #55555C;
+      }
+    
+      &:focus,
+      &:active {
+        background-color: #F1F4FD;
+        border: 1px solid #0E0E10;
+      }
+  }
+  .position-calendar{
+    position: absolute;
+    top:51px;
+    left: 10px;
+    z-index: 10;
+  }

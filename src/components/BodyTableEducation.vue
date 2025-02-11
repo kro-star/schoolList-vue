@@ -64,7 +64,7 @@ export default {
                 <div>
                     <p v-if="schoolStore.loadingSchools">Загрузка данных...</p>
                     <p v-if="schoolStore.schoolError" class="message-error">Ошибка загрузка данных: {{ schoolStore.schoolError }}</p>
-                    <p v-if="schoolStore.schools.length === 0 && schoolStore.loadingSchools === false" class="message-error">По вашему запросу ничего не найдено</p>
+                    <p v-if="schoolStore.schools.length === 0 && schoolStore.loadingSchools === false && schoolStore.schoolError === null" class="message-error">По вашему запросу ничего не найдено</p>
                 </div>
                 <div v-for="school in schoolStore.schools" :key="school.uuid" class="d-flex table-body-row">
                 <div class="table-body-item">
@@ -113,7 +113,7 @@ export default {
                 <div class="message-info">
                     <p v-if="schoolStore.loadingSchools">Загрузка данных...</p>
                     <p v-if="schoolStore.schoolError" class="message-error">Ошибка загрузка данных: {{ schoolStore.schoolError }}</p>
-                    <p v-if="schoolStore.schools.length === 0 && schoolStore.loadingSchools === false" class="message-error">По вашему запросу ничего не найдено</p>
+                    <p v-if="schoolStore.schools.length === 0 && schoolStore.loadingSchools === false && schoolStore.schoolError === null" class="message-error">По вашему запросу ничего не найдено</p>
                 </div>
                 <div v-for="school in schoolStore.schools" :key="school.uuid" >
                     <div class="d-flex justify-content-between border-bottom-grey p-4">
@@ -177,81 +177,6 @@ export default {
     </div>
 </template>
 
-<style lang="scss" scoped>
-.message-info {
-  p {
-    margin: 16px;
-  }
-}
-
-.message-error {
-  color: red;
-}
-
-.table-body-row {
-  border-bottom: 1px solid #D3D3DE;
-}
-
-.border-bottom-grey {
-  border-bottom: 2px solid #D3D3DE;
-}
-
-.table-body-item {
-  padding: 4px 16px;
-  box-sizing: border-box;
-  flex: 1;
-  display: flex;
-  align-items: center;
-
-  &:last-child {
-    flex: none;
-    width: 265px;
-    padding: 4px 16px 0 16px;
-  }
-}
-
-.table-body-item-small {
-  font-size: 14px;
-  font-weight: 400;
-  padding: 4px 16px;
-  box-sizing: border-box;
-  flex: 1;
-  display: flex;
-  align-items: center;
-}
-
-.table-body-text {
-  margin-left: 10px;
-}
-
-.type-education {
-  border: 1px solid rgba(14, 14, 16, 0.1);
-  border-radius: 8px;
-  padding: 4px 6px;
-  font-size: 12px;
-  margin-bottom: 4px;
-  margin-right: 4px;
-
-  &:last-child {
-    margin-right: 0;
-  }
-}
-
-.body-h4-text {
-  font-weight: 600;
-  font-size: 16px;
-}
-
-.table-body-arrow-up,
-.table-body-arrow-down {
-  cursor: pointer;
-}
-
-@media (max-width: 765px) {
-  .table-row-info {
-    .border-bottom-grey:nth-child(2) {
-      border: none;
-    }
-  }
-}
+<style  scoped>
+@import '../assets/css/bodyTableEducation.css';
 </style>

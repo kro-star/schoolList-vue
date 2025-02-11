@@ -1,0 +1,72 @@
+.search-mobile {
+  padding: 17.5px 24px;
+  width: 100%;
+  margin-right: 20px;
+}
+
+.search-img-mobile {
+  position: absolute;
+  top: 42px;
+  right: 24px;
+}
+
+.search-results-mobile {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.search-result-item-mobile {
+  padding: 8px;
+  cursor: pointer;
+}
+.search-result-item-mobile:hover {
+  background-color: #f0f0f0;
+}
+
+.table-head {
+  padding: 24px;
+  background-color: #F0F0F7;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.table-head:last-child {
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  width: 265px;
+}
+
+.table-head-text {
+  margin-left: 10px;
+  color: #55555C;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.button-sort {
+  cursor: pointer;
+}
+
+.sort svg path {
+  stroke: #93939B;
+}
+.sort svg:hover path {
+  stroke: #55555C;
+}
+.sort svg:active path {
+  stroke: #0E0E10;
+}
+.sort .active {
+  stroke: #0E0E10;
+}

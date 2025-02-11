@@ -42,24 +42,6 @@ const endRecord = computed(() => {
     </div>
 </template>
 
-<style lang="scss" scoped>
-.quantity{
-    border-radius: 8px;
-    border: 1px solid #D3D3DE;
-    padding: 6px 10px;
-    width: 73px;
-    height: 36px;
-}
-.pagination-filter{
-    display: flex;
-    align-items: center;
-
-}
-.quantity-pages{
-    color:#687588;
-    margin-right: 16px;
-}
-.pagination-text{
-    margin-right: 6px;
-}
+<style scoped>
+@import '../assets/css/paginationInfo.css';
 </style>

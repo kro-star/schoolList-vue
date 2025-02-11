@@ -118,67 +118,8 @@ export default {
 
 
 
-<style lang="scss" scoped>
+<style  scoped>
 
-
-
-.pagination-filter {
-  display: flex;
-  align-items: center;
-}
-
-.pagination-text {
-  margin-right: 6px;
-}
-
-.mobile-filters-container {
-  display: none;
-  min-width: 360px;
-  width: 70vw;
-  max-height: calc(100vh - 116px);
-  height: auto;
-  padding: 48px 24px 24px 24px;
-  z-index: 8;
-  position: relative;
-  top: 20px;
-  left: 0;
-  background-color: white;
-  box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.1);
-  overflow-y: scroll;
-
-  &.active {
-    display: block;
-  }
-}
-
-.closeButton {
-  position: absolute;
-  top: 24px;
-  right: 24px;
-}
-
-.filter-button,
-.download-button-mobile {
-  width: 38px;
-  height: 38px;
-}
-
-.filter-button {
-  &.active {
-    background-color: #F0F0F7;
-    border: 1px solid #0E0E10;
-  }
-}
-
-.message {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background-color: #F1F4FD;
-  color: #111827;
-  padding: 15px;
-  border-radius: 5px;
-  z-index: 1000;
-}
+@import '../assets/css/filterEducationMobil.css';
 
 </style>
