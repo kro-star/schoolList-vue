@@ -38,30 +38,32 @@ const cancelValues = () =>{
     </div>
 </template>
 
-<style scoped>
-.btn-cancel{
-    padding: 16px 24px;
-    font-size: 16px;
-    font-weight: 600;
-    margin-right: 20px;
-    text-align: center;
-    cursor: pointer;
+<style lang="scss" scoped>
+.btn-cancel {
+  padding: 16px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  margin-right: 20px;
+  text-align: center;
+  cursor: pointer;
 }
-.btn-run{
-    padding: 16px 24px;
-    border-radius: 10px;
-    background-color: #0E0E10;
-    color: #F1F4FD;
-    font-size: 16px;
-    font-weight: 600;
-    text-align: center;
-    cursor: pointer;
 
-}
-.btn-run:hover{
+.btn-run {
+  padding: 16px 24px;
+  border-radius: 10px;
+  background-color: #0E0E10;
+  color: #F1F4FD;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+
+  &:hover {
     background-color: #24C14E;
-}
-.btn-run:active{
+  }
+
+  &:active {
     background-color: #16B240;
+  }
 }
 </style>

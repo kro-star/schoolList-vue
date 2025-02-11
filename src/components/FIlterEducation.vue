@@ -46,7 +46,7 @@ export default {
     </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
     
     .filter-select{
   padding: 16px 24px;

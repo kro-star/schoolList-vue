@@ -65,32 +65,31 @@ const updateDropdownDirection = () => {
     </div>
 </template>
 
-<style scoped>
-.quantity-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    border-radius: 8px;
-    border: 1px solid #D3D3DE;
-    padding: 6px 10px;
-    width: 73px;
-    height: 36px;
-    background: white url('../assets/img/down.png') no-repeat right 16px center;
-    appearance: none;
-    -webkit-appearance: none; 
-    -moz-appearance: none;    
-    
-}
+<style lang="scss" scoped>
 .quantity-container {
   position: relative;
   width: 100%;
   font-family: sans-serif;
-
 }
 
-.quantity-header.open{
-  background: white url('../assets/img/up.png') no-repeat right 16px center;
+.quantity-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid #D3D3DE;
+  padding: 6px 10px;
+  width: 73px;
+  height: 36px;
+  background: white url('../assets/img/down.png') no-repeat right 16px center;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  &.open {
+    background: white url('../assets/img/up.png') no-repeat right 16px center;
+  }
 }
 
 .quantity-dropdown {
@@ -103,28 +102,27 @@ const updateDropdownDirection = () => {
   background-color: #fff;
   z-index: 10;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
 
-.quantity-dropdown.up{  
-  bottom: 100%; 
-  top: auto;
+  &.up {
+    bottom: 100%;
+    top: auto;
+  }
 }
 
 .quantity-option {
   padding: 8px 10px;
   cursor: pointer;
-}
 
-.quantity-option:hover {
-  background-color: #F1F4FD;
-}
+  &:hover {
+    background-color: #F1F4FD;
+  }
 
-.quantity-option:active {
-  background-color: #D3D3DE;
+  &:active {
+    background-color: #D3D3DE;
+  }
 }
 
 .arrow {
   font-size: 0.8em;
 }
-
 </style>

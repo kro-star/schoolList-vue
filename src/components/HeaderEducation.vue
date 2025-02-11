@@ -102,73 +102,76 @@ const selectRegion = (regionId) => {
 </template>
 
 
-<style scoped>
-.logo-text{
-    font-size: 32px;
-    font-weight: 700;
-    color: #111827;
-    line-height: 38.4px;
+<style lang="scss" scoped>
+.logo-text {
+  font-size: 32px;
+  font-weight: 700;
+  color: #111827;
+  line-height: 38.4px;
 }
 
 .message {
   position: fixed;
   top: 20px;
   right: 20px;
-  background-color: #F1F4FD; 
+  background-color: #F1F4FD;
   color: #111827;
   padding: 15px;
   border-radius: 5px;
-  z-index: 1000; 
+  z-index: 1000;
 }
 
-.search{
-    padding: 17.5px 24px;
-    width: 300px;
-    margin-right: 20px;
+.search {
+  padding: 17.5px 24px;
+  width: 300px;
+  margin-right: 20px;
+}
 
+.search-img {
+  position: absolute;
+  top: 18px;
+  right: 50px;
 }
-.search-img{
-    position: absolute;
-    top: 18px;
-    right: 50px;
-}
-.btn-download{
-    padding: 16px 24px;
-    background-color: #33D35E;
-    border-radius: 10px;
-    cursor: pointer;
-}
-.btn-download:hover{
+
+.btn-download {
+  padding: 16px 24px;
+  background-color: #33D35E;
+  border-radius: 10px;
+  cursor: pointer;
+
+  &:hover {
     background-color: #24C14E;
-}
-.btn-download:active{
+  }
+
+  &:active {
     background-color: #16B240;
+  }
 }
 
-.btn-text{
-    line-height: 20.8px;
-    font-size: 16px;
-    margin-left: 11px;
+.btn-text {
+  line-height: 20.8px;
+  font-size: 16px;
+  margin-left: 11px;
 }
+
 .search-results {
-  position: absolute; 
-  top: 100%; 
+  position: absolute;
+  top: 100%;
   left: 0;
   width: 300px;
-
   background-color: white;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  z-index: 10; 
+  z-index: 10;
 }
 
 .search-result-item {
   padding: 8px;
   cursor: pointer;
-}
 
-.search-result-item:hover {
-  background-color: #f0f0f0;
+  &:hover {
+    background-color: #f0f0f0;
+  }
 }
 </style>

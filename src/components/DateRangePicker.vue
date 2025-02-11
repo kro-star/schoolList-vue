@@ -196,118 +196,118 @@
   };
   </script>
   
-  <style scoped>
-  .date-range-input {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .date-input {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 200px;
-    cursor: pointer; /* indicate clickability */
-  }
-  
-  .calendar-icon {
-    position: absolute;
-    top: 50%;
-    right: 8px;
-    transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-  }
-  
-  .calendar-container {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 10; /* Ensure it's on top of other elements */
-    padding: 10px;
-    width: 300px; /* Adjust as needed */
-  }
-  
-  .month-nav {
-    background: none;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-    margin: 0 5px;
-  }
-  
-  .calendar {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 2px;
-  }
-  
-  .day-names {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    font-weight: bold;
-    padding-bottom: 5px;
-  }
-  
-  .days {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-  }
-  
-  .day {
-    text-align: center;
-    padding: 5px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .day:hover {
+  <style lang="scss" scoped>
+ .date-range-input {
+  position: relative;
+  display: inline-block;
+}
+
+.date-input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 200px;
+  cursor: pointer; /* indicate clickability */
+}
+
+.calendar-icon {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.calendar-container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 10; /* Ensure it's on top of other elements */
+  padding: 10px;
+  width: 300px; /* Adjust as needed */
+}
+
+.month-nav {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.day-names {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  font-weight: bold;
+  padding-bottom: 5px;
+}
+
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.day {
+  text-align: center;
+  padding: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
     background-color: #f0f0f0;
   }
-  
-  .today {
-    font-weight: bold;
+}
+
+.today {
+  font-weight: bold;
+}
+
+.selected-start {
+  background-color: #007bff;
+  color: white;
+}
+
+.selected-end {
+  background-color: #007bff;
+  color: white;
+}
+
+.selected-range {
+  background-color: #cce5ff;
+}
+
+.disabled {
+  color: #ccc;
+  cursor: not-allowed;
+
+  &:hover {
+    background-color: transparent;
   }
-  
-  .selected-start {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  .selected-end {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  .selected-range {
-    background-color: #cce5ff;
-  }
-  
-  .disabled {
-    color: #ccc;
-    cursor: not-allowed;
-  }
-  
-  .disabled:hover {
-      background-color: transparent;
-  }
-  
-  .confirm-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-  
-  .confirm-button:hover {
+}
+
+.confirm-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+
+  &:hover {
     background-color: #0056b3;
   }
+}
   </style>

@@ -5,7 +5,7 @@ import App from './App.vue'
 import { createPinia } from 'pinia'; 
 import VueAwesomePaginate from "vue-awesome-paginate";
 import "vue-awesome-paginate/dist/style.css";
-import './style.css';
+import './style.scss';
 import VCalendar from 'v-calendar';
 import 'v-calendar/style.css';
 

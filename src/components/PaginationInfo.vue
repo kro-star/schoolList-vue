@@ -42,7 +42,7 @@ const endRecord = computed(() => {
     </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .quantity{
     border-radius: 8px;
     border: 1px solid #D3D3DE;
