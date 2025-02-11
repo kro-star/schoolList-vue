@@ -2,196 +2,204 @@
 import HeadTableCheckBox from './HeadTableCheckBox.vue';
 
 import { useSchoolStore } from '../store/school';
-import { onMounted } from 'vue';
+import { ref } from 'vue';
 
 export default {
-    components: {
-       HeadTableCheckBox,
-    },
-    setup() {
-        const schoolStore = useSchoolStore();
-
-        onMounted(() => {
-        schoolStore.loadRegions(); // Загружаем регионы при монтировании компонента
-        });
-    return { schoolStore }
+  components: {
+    HeadTableCheckBox,
   },
-/* <div className="d-flex table-body-row">
-                    <div className="table-body-item">
-                        <div className="d-flex">
+  data() {
+    return {
+      schoolStore: useSchoolStore(),
+      isLgWidht: true,
+      isVisibleInfo: true,
+      hiddenSchools: [],
+      educationTypeMap: {
+        'Basic': "общеобразовательный",
+        'Medium': "cреднеспециальный",
+        'High': "высшее",
+        'PostHigh': "высшее", // ????? дополнительное высшее?
 
-                                <HeadTableCheckBox  />
-                            <div className="table-body-text">
-                                Белгородская область
-                            </div>
-                        </div>
-                    </div>
-                    <div className="table-body-item">
-                    МБОУ Средняя общеобразовательная школа №2
-                    </div>
-                    
-                    <div className="table-body-item">
-                    ул. Николая Гондатти, д. 13 ул. Н. Гондатти 13 ; ул. Н. Зелинского 22
-                    </div>
-                    
-                    <div className="table-body-item">
-                    <div className="d-flex flex-wrap">
-                        <div className="type-education">
-                            Среднее
-                        </div>
-                        <div className="type-education">
-                        Высшее
-                        </div>
-                        <div className="type-education">
-                        Специальное
-                        </div>
-                        <div className="type-education">
-                        Проф
-                        </div>
-                        <div className="type-education">
-                        Бакалавр
-                        </div>
-                    </div>
-                    </div>
-
-                </div>
-                <div className="d-flex table-body-row">
-                    <div className="table-body-item">
-                        <div className="d-flex">
-
-                                <HeadTableCheckBox  />
-                            <div className="table-body-text">
-                                Белгородская область
-                            </div>
-                        </div>
-                    </div>
-                    <div className="table-body-item">
-                    МБОУ Средняя общеобразовательная школа №2
-                    </div>
-                    
-                    <div className="table-body-item">
-                    ул. Николая Гондатти, д. 13 ул. Н. Гондатти 13 ; ул. Н. Зелинского 22
-                    </div>
-                    
-                    <div className="table-body-item">
-                    <div className="d-flex flex-wrap">
-                        <div className="type-education">
-                            Среднее
-                        </div>
-                        <div className="type-education">
-                        Высшее
-                        </div>
-                        <div className="type-education">
-                        Специальное
-                        </div>
-                        <div className="type-education">
-                        Проф
-                        </div>
-                        <div className="type-education">
-                        Бакалавр
-                        </div>
-                    </div>
-                    </div>
-
-                </div>
-                <div className="d-flex table-body-row">
-                    <div className="table-body-item">
-                        <div className="d-flex">
-
-                                <HeadTableCheckBox  />
-                            <div className="table-body-text">
-                                Белгородская область
-                            </div>
-                        </div>
-                    </div>
-                    <div className="table-body-item">
-                    МБОУ Средняя общеобразовательная школа №2
-                    </div>
-                    
-                    <div className="table-body-item">
-                    ул. Николая Гондатти, д. 13 ул. Н. Гондатти 13 ; ул. Н. Зелинского 22
-                    </div>
-                    
-                    <div className="table-body-item">
-                        <div className="d-flex flex-wrap">
-                            <div className="type-education">
-                                Среднее
-                            </div>
-                            <div className="type-education">
-                            Высшее
-                            </div>
-                            <div className="type-education">
-                            Специальное
-                            </div>
-                            <div className="type-education">
-                            Проф
-                            </div>
-                            <div className="type-education">
-                            Бакалавр
-                            </div>
-                        </div>
-                    </div>
-
-                </div> */
+      },
+    };
+  },
+  methods: {
+    getEducationType(code) {
+      return this.educationTypeMap[code] || "Не указано";
+    },
+    getwidthWindow(){
+      
+      const wightWin = window.innerWidth;
+      if (wightWin >= 992){
+        this.isLgWidht = true;
+      } else {
+        this.isLgWidht = false;
+      }
+    },
+    toggleShowInformation(schoolUuid) {
+      if (this.hiddenSchools.includes(schoolUuid)) {
+        this.hiddenSchools = this.hiddenSchools.filter((uuid) => uuid !== schoolUuid);
+      } else {
+        this.hiddenSchools.push(schoolUuid);
+      }
+    },
+  },
+  mounted() {    
+    this.getwidthWindow();
+    window.addEventListener('resize', this.getwidthWindow); 
+    this.schoolStore.loadSchools();
+  },
+  beforeUnmount(){
+    window.removeEventListener('resize', this.getwidthWindow);
+  }
 }
 
 
 </script>
 
 <template>
-    <div className="container-fluid">
-        <div className="row pb-4">
-            <div className="col-12">
+    <div class="container-fluid">
+        <div class="row pb-4">
+            <div v-if="isLgWidht" class="col-12">
                 <div>
-                    <p v-if="schoolStore.loadingRegions">Загрузка регионов...</p>
-                    <p v-if="schoolStore.regionsError" style="color: red;">Ошибка: {{ schoolStore.regionsError }}</p>
+                    <p v-if="schoolStore.loadingSchools">Загрузка данных...</p>
+                    <p v-if="schoolStore.schoolError" class="message-error">Ошибка загрузка данных: {{ schoolStore.schoolError }}</p>
+                    <p v-if="schoolStore.schools.length === 0 && schoolStore.loadingSchools === false" class="message-error">По вашему запросу ничего не найдено</p>
                 </div>
-                <div v-for="region in schoolStore.regions" :key="region.id" className="d-flex table-body-row">
-                <div className="table-body-item">
-                    <div className="d-flex">
-                    <HeadTableCheckBox />
-                    <div className="table-body-text">
-                        {{ region.name }}  <!-- Вставляем название региона -->
+                <div v-for="school in schoolStore.schools" :key="school.uuid" class="d-flex table-body-row">
+                <div class="table-body-item">
+                    <div class="d-flex">
+                    <div class="table-body-text">
+                        {{ school.region_name }}  
                     </div>
                     </div>
                 </div>
-                <div className="table-body-item">
-                    МБОУ Средняя общеобразовательная школа №2  <!-- Заглушка -->
+                <div class="table-body-item">
+                    <template v-if="school.short_name && school.short_name != '-' && school.short_name != 'нет' ">
+                        {{ school.short_name }}
+                    </template>
+                    <template v-else>
+                        {{ school.full_name }}
+                    </template>
                 </div>
-                <div className="table-body-item">
-                    ул. Николая Гондатти, д. 13 ул. Н. Гондатти 13 ; ул. Н. Зелинского 22  <!-- Заглушка -->
+                <div class="table-body-item">
+                    {{ school.post_address }}
                 </div>
-                <div className="table-body-item">
-                    <div className="d-flex flex-wrap">
-                    <div className="type-education">
-                        Среднее <!-- Заглушка -->
-                    </div>
-                    <div className="type-education">
-                        Высшее <!-- Заглушка -->
-                    </div>
-                    <div className="type-education">
-                        Специальное <!-- Заглушка -->
-                    </div>
-                    <div className="type-education">
-                        Проф <!-- Заглушка -->
-                    </div>
-                    <div className="type-education">
-                        Бакалавр <!-- Заглушка -->
-                    </div>
+                <div class="table-body-item">
+                    <div class="d-flex flex-wrap">
+                        <template v-if="school.educational_programs">
+
+                            <div v-for="education in school.educational_programs" :key="education.code" class="type-education">
+                                <template v-if="education.name">
+                                {{ education.name }}
+                                </template>
+                                <template v-else>
+                                {{ getEducationType(education.code) }}
+                                </template>
+                            </div>
+                        </template>
+                        <template v-else>
+                            <div class="type-education">
+                                не указано
+                            </div>
+
+                        </template>
                     </div>
                 </div>
                 </div>
                 
+            </div>
+            <div v-else class="col-12">
+                <div class="message-info">
+                    <p v-if="schoolStore.loadingSchools">Загрузка данных...</p>
+                    <p v-if="schoolStore.schoolError" class="message-error">Ошибка загрузка данных: {{ schoolStore.schoolError }}</p>
+                    <p v-if="schoolStore.schools.length === 0 && schoolStore.loadingSchools === false" class="message-error">По вашему запросу ничего не найдено</p>
+                </div>
+                <div v-for="school in schoolStore.schools" :key="school.uuid" >
+                    <div class="d-flex justify-content-between border-bottom-grey p-4">
+
+                        <div class="body-h4-text">
+                            {{ school.region_name }}
+                        </div>
+                        <div class="button-open pe-2" @click="toggleShowInformation(school.uuid)"  >
+                            <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg" class="table-body-arrow-up" :class="{ 'd-none': hiddenSchools.includes(school.uuid) }">
+                                <path d="M13 8L6.99469 2L1 8" stroke="#55555C" stroke-width="1.5" stroke-miterlimit="10"/>
+                            </svg>
+                            <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg"  :class="{ 'd-none': !hiddenSchools.includes(school.uuid) }">
+                                <path d="M0.999999 0.999999L7.0053 7L13 1" stroke="#55555C" stroke-width="1.5" stroke-miterlimit="10"/>
+                                </svg>
+   
+                        </div>
+                    </div>
+                    <div class="row pe-3 table-row-info" :data-id="school.uuid" :class="{ 'd-none': hiddenSchools.includes(school.uuid) }">
+                        <div class="col-1 d-none d-md-block"></div>
+                        <div class="col-12 col-md-7 border-bottom-grey pt-3 pb-3 ps-4 pe-4 ps-md-0 pe-md-0 ">
+                                <div class="table-body-item-small mb-3">
+                                    <template v-if="school.short_name && school.short_name != '-' && school.short_name != 'нет' ">
+                                        {{ school.short_name }}
+                                    </template>
+                                    <template v-else>
+                                        {{ school.full_name }}
+                                    </template>
+                                </div>
+                                <div class="table-body-item-small">
+                                    {{ school.post_address }}
+                                </div>
+                                
+                        </div>
+                        <div class="col-12 col-md-4 border-bottom-grey pt-3 pb-3 ps-4 pe-4 ps-md-0 pe-md-0 ms-2 me-2 ms-md-0 me-md-0" >
+                            <div class="table-body-item-small">
+                                    <div class="d-flex flex-wrap">
+                                        <template v-if="school.educational_programs">
+
+                                            <div v-for="education in school.educational_programs" :key="education.code" class="type-education">
+                                                <template v-if="education.name">
+                                                {{ education.name }}
+                                                </template>
+                                                <template v-else>
+                                                {{ getEducationType(education.code) }}
+                                                </template>
+                                            </div>
+                                        </template>
+                                        <template v-else>
+                                            <div class="type-education">
+                                                не указано
+                                            </div>
+
+                                        </template>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </template>
 
 <style scoped>
+.message-info p{
+    margin: 16px 16px;
+}
+.message-error{
+    color: red;
+}
 .table-body-row{
     border-bottom: 1px solid #D3D3DE;
 }
+.border-bottom-grey{    
+    border-bottom: 2px solid #D3D3DE;
+}
 .table-body-item{
+    padding: 4px 16px;
+    box-sizing: border-box;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+.table-body-item-small{
+    font-size: 14px;
+    font-weight: 400;
     padding: 4px 16px;
     box-sizing: border-box;
     flex: 1;
@@ -216,5 +224,18 @@ export default {
 }
 .type-education:last-child{
     margin-right: 0;
+}
+.body-h4-text{
+    font-weight: 600;
+    font-size: 16px;
+}
+.table-body-arrow-up, .table-body-arrow-down{
+    cursor: pointer;
+}
+@media (max-width: 765px) {
+    
+    .table-row-info .border-bottom-grey:nth-child(2){
+        border: none;
+    }
 }
 </style>

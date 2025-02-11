@@ -1,27 +1,50 @@
-<script>
+<script setup>
+import { useSchoolStore } from '@/store/school';
 
+const schoolStore = useSchoolStore();
+
+import { ref } from "vue";
+
+  const onClickHandler = (page) => {
+    schoolStore.checkPage = page;
+    schoolStore.loadSchools({ region_id: schoolStore.checkRegions, updated_at: schoolStore.checkUpdated, count: schoolStore.checkCount, page: schoolStore.checkPage });
+  };
+
+  const currentPage = ref(schoolStore.loadPageSchools || 1);
+
+  
 </script>
 
 <template>
- <div className="d-flex">
-        <div className="pagination-arrow">
-            <img src="../assets/img/backArrow.png" alt="" className='d-block'/>
-        </div>
-        <div className="pagination-numbers">
-            <div className="pagination-number active">1</div>
-            <div className="pagination-number ">2</div>
-            <div className="pagination-number ">3</div>
-            <div className="pagination-number ">...</div>
-            <div className="pagination-number ">10</div>
-        </div>
-        <div className="pagination-arrow">
-            <img src="../assets/img/nextArrow.png" alt="" className='d-block'/>
+    <div className="d-flex">
+        <div v-if="schoolStore.loadPageSchools !== 0" className="pagination-numbers">
+            <vue-awesome-paginate
+                :total-items="schoolStore.totalQuantitySchools"
+                :items-per-page="schoolStore.checkCount"
+                :max-pages-shown="5"
+                v-model="currentPage"
+                @click="onClickHandler"
+            >
+                <template #prev-button>
+                    <span >
+                        <img src="../assets/img/backArrow.png" alt="" className='d-block'/>    
+                    </span>
+
+                </template>
+                <template #next-button>
+                    <span >
+                        <img src="../assets/img/nextArrow.png" alt="" className='d-block'/>    
+                    </span>
+
+                </template>
+            </vue-awesome-paginate>            
         </div>
     </div>
 </template>
 
 <style scoped>
-.pagination-arrow{
+ 
+.paginate-buttons{
     border-radius: 8px;
     border: 1px solid #D3D3DE;
     width: 44px;
@@ -31,7 +54,7 @@
     align-items: center;
     cursor: pointer;
 }
-.pagination-arrow:hover{
+.paginate-buttons:hover{
     background-color: #F1F4FD;
 }
 .pagination-numbers{

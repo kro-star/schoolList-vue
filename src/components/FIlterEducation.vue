@@ -1,70 +1,81 @@
-<script>
-import { ref } from 'vue';
-const date = ref(new Date());
+<script >
+import SelectFederalDistrict from './SelectFederalDistrict.vue'
+import SelectRegions from './SelectRegions.vue';
+import FilterCalendar from './FilterCalendar.vue';
+import ButtonsRun from './ButtonsRun.vue';
+import FilterEducationMobil from './FilterEducationMobil.vue';
 
-/*export default {
+
+export default {
   components: {
-    DateRangeInput,
+    SelectFederalDistrict,
+    SelectRegions,
+    FilterCalendar,
+    ButtonsRun,
+    FilterEducationMobil,
   },
-  setup() {
-    const selectedStartDate = ref(null);
-    const selectedEndDate = ref(null);
-
-    const handleDateRangeSelected = (dateRange) => {
-      selectedStartDate.value = dateRange.startDate;
-      selectedEndDate.value = dateRange.endDate;
-    };
-
-    return {
-      selectedStartDate,
-      selectedEndDate,
-      handleDateRangeSelected,
-    };
-  },
-};*/
+ 
+}
 </script>
 
 <template>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 col-md-4">
-                <input type="date" class="filter-select"/>
+        <div class="row ">
+            <div class="d-none d-lg-block  col-lg-4 pb-lg-0 pb-4 position-relative">
+              <FilterCalendar />
+              
             </div>
-            <div class="col-12 col-md-4">
-                <select name="types" id="" class="filter-select">
-                <option value="all" selected>Все виды</option>
-                    <option value="1">type 1</option>
-                    <option value="2">type 2</option>
-                    <option value="3">type 3</option>
-                </select>
+            <div class="d-none d-lg-block  col-lg-4  pb-lg-0 pb-4">
+              <SelectFederalDistrict />
             </div>
-            <div class="col-12 col-md-4">
-                <select name="status" id="" class="filter-select">
-                <option value="all" selected>Все статусы</option>
-                    <option value="1">status 1</option>
-                    <option value="2">status 2</option>
-                    <option value="3">status 3</option>
-                </select>
-
+            <div class="d-none d-lg-block col-lg-4  pb-lg-0 pb-4">   
+                
+              <SelectRegions />
             </div>
+        </div>
+        
+        <div class="row pt-lg-4 d-none d-lg-flex">
+          <div class="col-8"></div>
+            <div class="col-4">
+              <ButtonsRun />
+            </div>
+        </div>
+        <div class="row d-lg-none position-relative">          
+          <FilterEducationMobil />
         </div>
     </div>
 </template>
 
 <style scoped>
     
-
-
     .filter-select{
-padding: 16px 24px;
-border: 1px solid #D3D3DE;
-border-radius: 10px;
-width: 100%;
-background: white url('../assets/img/down.png') no-repeat right 30px center;
--webkit-appearance: none; 
--moz-appearance: none;    
-appearance: none; 
+  padding: 16px 24px;
+  border: 1px solid #D3D3DE;
+  border-radius: 10px;
+  width: 100%;
+  background: white url('../assets/img/down.png') no-repeat right 30px center;
+  -webkit-appearance: none; 
+  -moz-appearance: none;    
+  appearance: none; 
 }
+
+.data-select{
+  padding: 16px 24px;
+  width: 100%;
+  background: white url('../assets/img/calendar-icon.png') no-repeat right 30px center;
+  -webkit-appearance: none; 
+  -moz-appearance: none;    
+  appearance: none; 
+  cursor: pointer;
+}
+.position-calendar{
+  position: absolute;
+  top:51px;
+  left: 10px;
+  z-index: 10;
+
+}
+
 
 
 </style>

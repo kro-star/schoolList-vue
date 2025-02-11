@@ -8,7 +8,7 @@ import Pagination from './components/Pagination.vue'
 </script>
 
 <template>
-  <div class="1">
+  <div >
 
     <HeaderEducation />
     <FilterEducation />
