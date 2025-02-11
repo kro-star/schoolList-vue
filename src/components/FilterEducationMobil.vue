@@ -45,7 +45,6 @@ export default {
         //schoolStore.download(); - сервер не даёт скачивать, поэтому отключила.    
         if (!schoolStore.downloadError){
             //textMessage.value = 'Успешно скачано';
-            console.log('Скачивание сейчас не работает');
             
             this.textMessage = 'Скачивание сейчас не работает';
         } else {

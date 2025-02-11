@@ -52,8 +52,6 @@ export const useSchoolStore = defineStore('school', {
     }
       
     url.search = params.toString(); 
-
-    console.log('URL:', url.toString()); 
     
 
       this.loadingSchools =true;
@@ -241,7 +239,6 @@ export const useSchoolStore = defineStore('school', {
         
         const data = await response.json();
         this.downloadHref = data.data;
-        console.log(data);
 
       } catch (error) {
         this.downloadError = error.message || 'Network error';

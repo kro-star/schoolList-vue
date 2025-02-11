@@ -29,7 +29,6 @@ export default {
     onDayClick(day) {
       const schoolStore = useSchoolStore(); 
       schoolStore.checkUpdated = this.formatDate(day.date);
-      console.log(schoolStore.checkUpdated)
       this.isOpenCalendar = false;
       this.showDate();
       

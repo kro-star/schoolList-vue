@@ -60,9 +60,9 @@ const selectRegion = (regionId) => {
     <div class="container-fluid position-relative">
         <div class="row">
             <div class="col-12 col-lg-6 d-flex align-items-center">
-                    <div class="logo-text text-center text-lg-start pb-4 pt-4 w-100">
+                    <h1 class="logo-text text-center text-lg-start pb-4 pt-4 w-100 d-block">
                         Таблица учреждений
-                    </div>
+                    </h1>
             </div>
             <div class="d-none d-lg-block col-lg-6 pb-4 pt-lg-4">
                 <div class="active d-flex justify-content-end">

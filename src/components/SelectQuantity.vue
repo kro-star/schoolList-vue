@@ -16,7 +16,6 @@ const toggleDropdown = () => {
 };
 
 const toggleQUantity = (quantity) => {
-  console.log(quantity)
     schoolStore.checkCount = quantity;
     isOpen.value = false;
     schoolStore.loadSchools({region_id: schoolStore.checkRegions, updated_at: schoolStore.checkUpdated, count:schoolStore.checkCount, page: 1})
