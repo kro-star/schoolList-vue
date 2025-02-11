@@ -11,7 +11,8 @@ export default defineConfig({
     vue(),
     vueJsx(),
     vueDevTools(),
-  ],
+  ],  
+  base: '/schoolList-vue/',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
